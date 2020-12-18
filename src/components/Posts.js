@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { FetchPosts } from "../actions/FetchPosts";
+import { FetchPosts, Increment } from "../actions/FetchPosts";
 import { Component } from "react";
 class Posts extends Component {
   componentWillMount() {
@@ -15,6 +15,8 @@ class Posts extends Component {
     return (
       <div>
         <h1>This is Posts component.</h1>
+        <h1>{this.props.count}</h1>
+        <button onClick={() => this.props.Increment()}>Inc</button>
         {PostItems}
       </div>
     );
@@ -22,5 +24,6 @@ class Posts extends Component {
 }
 const mapStateToProps = (state) => ({
   posts: state.post.posts,
+  count: state.post.count,
 });
-export default connect(mapStateToProps, { FetchPosts })(Posts);
+export default connect(mapStateToProps, { FetchPosts, Increment })(Posts);

@@ -9,3 +9,9 @@ export const FetchPosts = () => (dispatch) => {
   };
   Search();
 };
+
+export const Increment = () => (dispatch) => {
+  dispatch({
+    type: "INCREMENT",
+  });
+};
